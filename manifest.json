@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Flock Planner Exporter",
+  "description": "Export Flock Planner data to CSV",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "downloads",
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://planner.flocksafety.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    "libs/bootstrap.bundle.min.js"
+  ]
+}
